@@ -1,8 +1,0 @@
-<?
-$base = "/var/www/openwillow.net";
-require_once("$base/config.php");
-require_once("$base/inc/main.php");
-
-include_class("Log");
-Log::load();
-?>

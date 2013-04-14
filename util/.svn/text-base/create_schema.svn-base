@@ -1,2 +1,0 @@
-mysqldump -u root -p -d --add-drop-table sharedtree > db_schema.sql
-
