@@ -1,0 +1,1 @@
+{if $birth_year <> 0}{if $birth_date > ""}{$birth_date}{if $birth_year < 0} B.C.{/if}{else}~{$birth_year}{/if}{/if}
