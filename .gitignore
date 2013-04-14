@@ -1,1 +1,4 @@
 config_local.php
+sitemap*
+.svn
+Thumbs.db

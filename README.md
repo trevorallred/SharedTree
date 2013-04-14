@@ -1,4 +1,1 @@
-SharedTree
-==========
-
-The Internet's first completely FREE, completely online family history and genealogy application.
+Please see the INSTALL file for instructions on how to install this application.
