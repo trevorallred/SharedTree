@@ -1,0 +1,53 @@
+Before trying to install this software, please post a message on SourceForge.
+This requires PHP 5 and MySQL 5 to be installed on your system.
+Apache was used as the web server but it may work on others.
+
+1) Rename ~config_local.php to config_local.php
+2) Setup a MySQL database
+2a) Create a new database (sharedtree)
+2a) Load the /util/db_schema.sql into that database
+2b) Edit the database settings in config_local.php
+
+3) Install Smarty into inc/smart/libs/
+See class/GenTreeSmarty.class.php for required directory locations
+
+4) Install MediaWiki (for help files and documentation)
+
+5) Setup cronjobs
+There are several cronjobs that need to run as well.
+MINUTELY
+* * * * * /usr/bin/php sharedtree.com/util/process_logs.php
+
+DAILY
+
+#!/bin/bash
+ST_ROOT=/sharedtree.com/htdocs/util
+PHP_EXEC=/usr/bin/php
+
+echo "Starting Daily SharedTree scripts"
+echo "ST_ROOT = $ST_ROOT"
+echo "PHP_EXEC = $PHP_EXEC"
+
+$PHP_EXEC $ST_ROOT/estimate_birth.php
+$PHP_EXEC $ST_ROOT/set_public_flag.php
+$PHP_EXEC $ST_ROOT/match_all.php
+$PHP_EXEC $ST_ROOT/rebuild_trees.php
+
+WEEKLY
+#!/bin/bash
+ST_ROOT=/sharedtree.com/htdocs/util
+PHP_EXEC=/usr/bin/php
+
+echo "Starting Weekly SharedTree scripts"
+echo "ST_ROOT = $ST_ROOT"
+echo "PHP_EXEC = $PHP_EXEC"
+
+$PHP_EXEC $ST_ROOT/mail.php
+$PHP_EXEC $ST_ROOT/build_sitemap.php
+
+cp $ST_ROOT/sitemaps/sitemap.xml /home/tallred/sharedtree/
+cp $ST_ROOT/sitemaps/sitemap*.gz /home/tallred/sharedtree/
+
+echo "Finished SharedTree script"
+
+6) Add apache redirects
