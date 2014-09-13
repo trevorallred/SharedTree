@@ -101,8 +101,8 @@ $T->assign('user', $user->data);
 $T->assign('is_logged_on', is_logged_on());
 
 ### Track Page Views
-$track_hit = true;
-//$track_hit = false; // turn this off for now (trying to solve performance issues
+// $track_hit = true;
+$track_hit = false; // turn this off for now (trying to solve performance issues
 if ($is_bot) $track_hit = false;
 if ($_SERVER["SCRIPT_NAME"] == "/image.php") $track_hit = false;
 if ($track_hit) {

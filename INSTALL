@@ -1,17 +1,26 @@
+
+
+
 Before trying to install this software, please post a message on SourceForge.
+
 This requires PHP 5 and MySQL 5 to be installed on your system.
 Apache was used as the web server but it may work on others.
 
 1) Rename ~config_local.php to config_local.php
 2) Setup a MySQL database
 2a) Create a new database (sharedtree)
+
+create database sharedtree CHARACTER SET utf8 COLLATE utf8_general_ci;
+GRANT ALL ON `sharedtree`.* TO `sharedtree`@`localhost` identified BY 'fretU4eq';
+
 2a) Load the /util/db_schema.sql into that database
 2b) Edit the database settings in config_local.php
 
 3) Install Smarty into inc/smart/libs/
 See class/GenTreeSmarty.class.php for required directory locations
 
-4) Install MediaWiki (for help files and documentation)
+4) Install Cache Lite into inc/smart/libs/
+See class/GenTreeSmarty.class.php for required directory locations
 
 5) Setup cronjobs
 There are several cronjobs that need to run as well.

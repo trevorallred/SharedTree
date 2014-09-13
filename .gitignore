@@ -1,4 +1,5 @@
 config_local.php
 sitemap*
 .svn
+.idea
 Thumbs.db
